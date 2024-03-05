@@ -1,5 +1,7 @@
-require('dotenv').config()
-const express = require('express')
+import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
 const app = express()
 
 app.get('/',(req,res)=>{
@@ -9,7 +11,7 @@ app.get('/',(req,res)=>{
 app.get('/dashboard', function (req, res) {
   res.send('dashboard')
 })
-
-app.listen(process.env.PORT,()=>{
-     console.log('App is runing');
+const port = process.env.PORT || 4000;
+app.listen(port,()=>{
+     console.log(`App is runing http://localhost:${port}`);
 })
